@@ -35,82 +35,76 @@ const items = [
 
 const collectionPoints = [
   {
-    city: "Juiz de Fora",
+    city: "Belo Horizonte",
     points: [
       {
-        name: "Igreja Batista Sul",
-        address: "Rua exemplo, 123 — Centro, Juiz de Fora/MG",
-        hours: "8h às 18h",
+        name: "Cruz Vermelha",
+        description: "Cesta básicas, alimentos não perecíveis, itens básicos de higiene e produtos de limpeza. \n Doações via Pix: soschuvas2026@cvbmg.org.br.",
+        address: "Rua Gastão Bráulio dos Santos, 837, Gameleira - BH",
+        hours: "8h às 20h",
       },
       {
-        name: "Aliança Evangélica",
-        address: "Av. exemplo, 456 — São Mateus, Juiz de Fora/MG",
-        hours: "9h às 17h",
+        name: "SOS Chuvas",
+        description: (
+          <>
+            Arrecadando itens de higiene pessoal e recursos financeiros. {" "}
+            <a
+              href="https://www.tjmg.jus.br/portal-tjmg/noticias/nucleo-de-voluntariado-realiza-campanha-sos-chuvas-zona-da-mata.htm"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary underline hover:no-underline underline-offset-4"
+            >
+              Doações via Pix
+            </a>.
+          </>
+        ),
+        address: "Avenida Afonso Pena, 4001, Serra - BH"
       },
       {
-        name: "Igreja Morada de Deus",
-        address: "Rua exemplo, 789 — Benfica, Juiz de Fora/MG",
-        hours: "7h às 19h",
+        name: "Central Única das Favelas (CUFA)",
+        description: (
+          <>
+            Cestas básicas, alimentos não perecíveis, água mineral e materiais de limpeza.{" "}
+            <a
+              href="https://www.cufajf.org.br/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-primary underline hover:no-underline underline-offset-4"
+            >
+              Doações via Pix
+            </a>.
+          </>
+        ),
+        address: "Rua Coronel Ascendino Costa, 96, Aparecida - BH"
+      },
+      {
+        name: "Assaí Atacadista",
+        description: "Alimentos não perecíveis, produtos de higiene pessoal e materiais de limpeza.",
+        address: "Todas as lojas do Assaí em Minas Gerais."
+      },
+      {
+        name: "Afrogalpão",
+        description: "A Afrogalpão está trocando a entrada nos eventos (Resenha dos Pretos, Samba da Luz e Pagode de Todos os Pretos) por um alimento não perecível. Além disso, é possível doar materiais de limpeza, produtos de higiene pessoal e água mineral.",
+        address: "Av. Dom Pedro II, 2725, Carlos Prates - BH"
+      },
+      {
+        name: "Samba da Ju",
+        description: "Nos dois próximos Sambas da Ju (27/2 e 6/3), a cantora Júlia Rocha vai arrecadar doações para as vítimas do desastre em Juiz de Fora e Ubá. O evento, realizado no Três Preto Bar, vai receber água, alimento não perecível, itens de higiene, cobertor e ração",
+        address: "Av. Dom Pedro II, 3608, Jardim Montanhês - BH"
       },
     ],
-  },
-  {
-    city: "Ubá",
-    points: [
-      {
-        name: "Igreja Batista de Ubá",
-        address: "Rua exemplo, 100 — Centro, Ubá/MG",
-        hours: "8h às 17h",
-      },
-      {
-        name: "Comunidade Cristã de Ubá",
-        address: "Av. exemplo, 200 — Industrial, Ubá/MG",
-        hours: "9h às 18h",
-      },
-    ],
-  },
-  {
-    city: "Matias Barbosa",
-    points: [
-      {
-        name: "Igreja Presbiteriana de Matias Barbosa",
-        address: "Rua exemplo, 50 — Centro, Matias Barbosa/MG",
-        hours: "8h às 16h",
-      },
-      {
-        name: "Comunidade Evangélica Vida Nova",
-        address: "Rua exemplo, 80 — Vila Nova, Matias Barbosa/MG",
-        hours: "9h às 17h",
-      },
-    ],
-  },
-  {
-    city: "Senador Firmino",
-    points: [
-      {
-        name: "Igreja Assembleia de Deus",
-        address: "Rua exemplo, 30 — Centro, Senador Firmino/MG",
-        hours: "8h às 17h",
-      },
-      {
-        name: "Igreja Batista Renovada",
-        address: "Rua exemplo, 60 — São José, Senador Firmino/MG",
-        hours: "9h às 16h",
-      },
-    ],
-  },
+  }
 ];
 
 const WhatToDonate = () => {
   return (
-    <section className="bg-secondary/50 py-16">
-      <div className="mx-auto px-6 md:px-12 max-w-5xl">
-        {/* O que doar */}
+    <section className="bg-secondary/50 py-16" aria-labelledby="what-to-donate-title">
+      <div className="mx-auto px-6 md:px-12 max-w-6xl">
         <div className="mb-14 text-center">
-          <h2 className="font-bold text-foreground text-3xl md:text-4xl">
+          <h2 id="what-to-donate-title" className="font-bold text-foreground text-3xl md:text-4xl">
             O que doar?
           </h2>
-          <p className="mx-auto mt-3 max-w-lg text-muted-foreground">
+          <p className="mx-auto mt-3 max-w-lg">
             Confira os itens mais necessários neste momento para as famílias
             atingidas.
           </p>
@@ -123,11 +117,11 @@ const WhatToDonate = () => {
               className="flex items-start gap-4 bg-card hover:shadow-[var(--card-shadow)] p-5 border border-border rounded-xl transition-all"
             >
               <div className="flex justify-center items-center bg-accent/15 rounded-lg w-11 h-11 shrink-0">
-                <item.icon className="w-5 h-5 text-accent" />
+                <item.icon className="w-5 h-5 text-accent" aria-hidden="true" />
               </div>
               <div>
                 <h3 className="font-semibold text-foreground">{item.label}</h3>
-                <p className="mt-1 text-muted-foreground text-sm">
+                <p className="mt-1 whitespace-pre-wrap">
                   {item.description}
                 </p>
               </div>
@@ -135,12 +129,11 @@ const WhatToDonate = () => {
           ))}
         </div>
 
-        {/* Pontos de coleta */}
         <div className="mb-8 text-center">
           <h2 className="font-bold text-foreground text-3xl md:text-4xl">
             Pontos de coleta
           </h2>
-          <p className="mx-auto mt-3 max-w-lg text-muted-foreground">
+          <p className="mx-auto mt-3 max-w-lg">
             Leve suas doações presencialmente a um dos pontos abaixo.
           </p>
         </div>
@@ -158,12 +151,19 @@ const WhatToDonate = () => {
                     className="bg-card hover:shadow-[var(--card-shadow)] p-6 border border-border rounded-xl transition-all"
                   >
                     <h3 className="font-bold text-foreground">{point.name}</h3>
-                    <p className="mt-2 text-muted-foreground text-sm">
-                      {point.address}
-                    </p>
-                    <span className="inline-block bg-primary/10 mt-3 px-3 py-1 rounded-full font-semibold text-primary text-xs">
-                      🕐 {point.hours}
-                    </span>
+                    {point.description && (
+                      <p className="mt-2 whitespace-pre-wrap">
+                        {point.description}
+                      </p>
+                    )}
+                    <address className="mt-2">
+                      Endereço: {point.address}
+                    </address>
+                    {point.hours && (
+                      <span className="inline-block bg-primary/10 mt-3 px-3 py-1 rounded-full font-semibold text-primary text-xs">
+                        <span aria-hidden="true">🕐</span> {point.hours}
+                      </span>
+                    )}
                   </div>
                 ))}
               </div>
