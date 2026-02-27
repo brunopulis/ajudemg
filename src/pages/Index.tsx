@@ -1,113 +1,12 @@
-import { Heart, HandHeart, ChevronDown, MessageCircle } from "lucide-react";
+import { HandHeart, ChevronDown, MessageCircle } from "lucide-react";
 import heroImage from "@/assets/hero-flood.jpg";
 import DonationCard from "@/components/DonationCard";
 import WhatToDonate from "@/components/WhatToDonate";
-
-const churches = [
-  {
-    city: "Belo Horizonte",
-    entries: [
-      {
-        name: "Oitava Igreja Presbiteriana",
-        pixKey: "21.854.112/0001-80",
-        pixType: "CNPJ" as const,
-        description:
-          "Para destinar doações às famílias afetadas pelas chuvas, acrescente um centavo (R$ 0,01) ao valor. Quer doar R$ 50,00 por exemplo, doe R$ 50,01.",
-      }
-    ],
-  },
-  {
-    city: "Juiz de Fora",
-    entries: [
-      {
-        name: "A Igreja do Brasil",
-        pixKey: "39.304.681/0001-17",
-        pixType: "CNPJ" as const,
-        description:
-          "A igreja foi inundada e ainda assim, os membros estão socorrendo as vítimas. Envie qualquer valor.",
-      },
-      {
-        name: "Aliança Evangélica",
-        pixKey: "pix@aliancaevangelica.org.br",
-        pixType: "Email" as const,
-        description: "Envie qualquer valor com o final de 0,32 centavos.",
-      },
-      {
-        name: "Igreja Batista Sul",
-        pixKey: "ibsuljfmg@gmail.com",
-        pixType: "Email" as const,
-        description: "Envie qualquer valor com o final de 26 centavos.",
-      },
-      {
-        name: "Igreja Morada de Deus",
-        pixKey: "00.947.024/0001-52",
-        pixType: "CNPJ" as const,
-        description: "Envie qualquer valor.",
-      },
-      {
-        name: "Conexão Presbiteriana",
-        pixKey: "29.612.649/0001-45",
-        pixType: "CNPJ" as const,
-        description: "Envie qualquer valor com o final de 0,06 centavos.",
-      },
-    ],
-  },
-  {
-    city: "Ubá",
-    entries: [
-      {
-        name: "Igreja Batista de Ubá",
-        pixKey: "exemplo@uba.org.br",
-        pixType: "Email" as const,
-        description: "Envie qualquer valor para ajudar as vítimas em Ubá.",
-      },
-      {
-        name: "Comunidade Cristã de Ubá",
-        pixKey: "00.000.000/0001-00",
-        pixType: "CNPJ" as const,
-        description: "Envie qualquer valor.",
-      },
-    ],
-  },
-  {
-    city: "Matias Barbosa",
-    entries: [
-      {
-        name: "Igreja Presbiteriana de Matias Barbosa",
-        pixKey: "exemplo@matias.org.br",
-        pixType: "Email" as const,
-        description: "Envie qualquer valor para apoiar as famílias atingidas.",
-      },
-      {
-        name: "Comunidade Evangélica Vida Nova",
-        pixKey: "00.000.000/0002-00",
-        pixType: "CNPJ" as const,
-        description: "Envie qualquer valor.",
-      },
-    ],
-  },
-  {
-    city: "Senador Firmino",
-    entries: [
-      {
-        name: "Igreja Assembleia de Deus",
-        pixKey: "exemplo@firmino.org.br",
-        pixType: "Email" as const,
-        description: "Envie qualquer valor para socorrer as vítimas.",
-      },
-      {
-        name: "Igreja Batista Renovada",
-        pixKey: "00.000.000/0003-00",
-        pixType: "CNPJ" as const,
-        description: "Envie qualquer valor.",
-      },
-    ],
-  },
-];
+import { donations } from "@/data/donations";
 
 const whatsappMessage = encodeURIComponent(
   "Juiz de Fora, Ubá, Matias Barbosa e Senador Firmino precisam de ajuda! As chuvas devastaram cidades inteiras. Igrejas estão recebendo doações via PIX. Acesse o portal e ajude: " +
-    window.location.href,
+  window.location.href,
 );
 const whatsappUrl = `https://wa.me/?text=${whatsappMessage}`;
 
@@ -160,18 +59,11 @@ const Index = () => {
           </div>
 
           <div className="space-y-10">
-            {churches.map((group) => (
-              <div key={group.city}>
-                <h3 className="mb-4 font-bold text-foreground text-xl">
-                  {group.city}
-                </h3>
-                <div className="gap-6 grid md:grid-cols-2">
-                  {group.entries.map((church) => (
-                    <DonationCard key={church.pixKey} {...church} />
-                  ))}
-                </div>
-              </div>
-            ))}
+            <div className="gap-6 grid md:grid-cols-2">
+              {donations.map((donation) => (
+                <DonationCard key={donation.name} {...donation} />
+              ))}
+            </div>
           </div>
         </section>
 
