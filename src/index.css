@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Source+Sans+3:wght@300;400;500;600;700&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 30 25% 95%;
+    --foreground: 25 30% 12%;
+
+    --card: 30 20% 90%;
+    --card-foreground: 25 30% 12%;
+
+    --popover: 30 25% 95%;
+    --popover-foreground: 25 30% 12%;
+
+    --primary: 25 45% 30%;
+    --primary-foreground: 30 25% 95%;
+
+    --secondary: 30 15% 82%;
+    --secondary-foreground: 25 30% 12%;
+
+    --muted: 30 15% 88%;
+    --muted-foreground: 25 15% 45%;
+
+    --accent: 15 60% 45%;
+    --accent-foreground: 30 25% 95%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 30 15% 80%;
+    --input: 30 15% 80%;
+    --ring: 25 45% 30%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --hero-gradient: linear-gradient(135deg, hsl(25 30% 20%), hsl(25 45% 30%));
+    --warm-shadow: 0 8px 32px -8px hsl(25 30% 12% / 0.15);
+    --card-shadow: 0 4px 16px -4px hsl(25 30% 12% / 0.1);
+  }
+
+  .dark {
+    --background: 25 30% 8%;
+    --foreground: 30 20% 90%;
+    --card: 25 25% 14%;
+    --card-foreground: 30 20% 90%;
+    --popover: 25 25% 14%;
+    --popover-foreground: 30 20% 90%;
+    --primary: 30 30% 70%;
+    --primary-foreground: 25 30% 8%;
+    --secondary: 25 20% 20%;
+    --secondary-foreground: 30 20% 90%;
+    --muted: 25 20% 18%;
+    --muted-foreground: 30 15% 60%;
+    --accent: 15 50% 55%;
+    --accent-foreground: 30 25% 95%;
+    --border: 25 20% 22%;
+    --input: 25 20% 22%;
+    --ring: 30 30% 70%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: "Source Sans 3", sans-serif;
+  }
+  h1,
+  h2,
+  h3 {
+    font-family: "Playfair Display", serif;
+  }
+}
