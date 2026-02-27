@@ -114,15 +114,6 @@ const whatsappUrl = `https://wa.me/?text=${whatsappMessage}`;
 const Index = () => {
   return (
     <div className="bg-background min-h-screen">
-      <a
-        href={whatsappUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="right-6 bottom-6 z-50 fixed flex justify-center items-center bg-[hsl(142,70%,40%)] shadow-lg rounded-full w-14 h-14 text-white hover:scale-110 active:scale-95 transition-transform"
-        aria-label="Compartilhar no WhatsApp"
-      >
-        <MessageCircle className="w-7 h-7" />
-      </a>
       <section className="relative flex items-end h-[70vh] min-h-[480px] overflow-hidden">
         <img
           src={heroImage}
@@ -132,15 +123,15 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-t from-foreground/90 via-foreground/40 to-transparent" />
         <div className="z-10 relative px-6 md:px-12 lg:px-24 pb-12 w-full">
           <div className="max-w-3xl">
-            <span className="inline-flex items-center gap-2 bg-accent mb-3 px-4 py-1.5 rounded-full font-semibold text-sm text-accent-foreground">
-              <HandHeart className="w-4 h-4" /> Campanha Solidária
+            <span className="inline-flex items-center gap-2 bg-green-700 mb-3 px-4 py-1.5 rounded-full font-bold text-sm text-white">
+              <HandHeart className="w-4 h-4" aria-hidden="true" /> Campanha Solidária
             </span>
-            <h1 className="font-black text-primary-foreground text-4xl md:text-6xl leading-tight">
+            <h1 className="font-black text-white text-4xl md:text-6xl leading-tight">
               Juiz de Fora e região
               <br />
               precisam de você
             </h1>
-            <p className="mt-4 max-w-xl text-primary-foreground/80 text-lg">
+            <p className="mt-4 max-w-xl text-white text-lg">
               As chuvas devastaram Juiz de Fora, Ubá, Matias Barbosa, Senador
               Firmino e região. Igrejas estão unidas para socorrer as vítimas.
               Doe agora via PIX.
@@ -149,7 +140,8 @@ const Index = () => {
         </div>
         <a
           href="#doacoes"
-          className="bottom-4 left-1/2 z-10 absolute text-primary-foreground/60 -translate-x-1/2 animate-bounce"
+          aria-label="ir para doações"
+          className="bottom-4 left-1/2 z-10 absolute text-white/60 -translate-x-1/2 animate-bounce"
         >
           <ChevronDown className="w-8 h-8" aria-hidden="true" />
         </a>
@@ -186,13 +178,22 @@ const Index = () => {
 
       {/* Footer */}
       <footer className="py-8 border-border border-t text-center">
-        <div className="flex justify-center items-center gap-2 text-muted-foreground">
+        <div className="flex justify-center items-center gap-2 ">
           <Heart className="w-4 h-4 text-accent" />
           <p className="text-sm">
             Feito com amor para as vítimas das chuvas em Juiz de Fora, Ubá,
             Matias Barbosa, Senador Firmino e região
           </p>
         </div>
+        <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="right-6 bottom-6 z-50 fixed flex justify-center items-center bg-[hsl(142,70%,40%)] shadow-lg rounded-full w-14 h-14 text-white hover:scale-110 active:scale-95 transition-transform"
+        aria-label="Compartilhar no WhatsApp"
+      >
+        <MessageCircle className="w-7 h-7" aria-hidden="true" />
+      </a>
       </footer>
     </div>
   );
