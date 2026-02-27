@@ -26,18 +26,18 @@ const DonationCard = ({
     <div className="group bg-card hover:shadow-[var(--warm-shadow)] p-6 border border-border rounded-xl transition-all hover:-translate-y-1 duration-300">
       <div className="flex items-start gap-3 mb-3">
         <div className="flex justify-center items-center bg-primary/10 rounded-full w-10 h-10 shrink-0">
-          <Heart className="w-5 h-5 text-primary" />
+          <Heart className="w-5 h-5 text-primary" aria-hidden="true" />
         </div>
         <div>
           <h3 className="font-bold text-foreground text-lg">{name}</h3>
           {description && (
-            <p className="mt-1 text-muted-foreground text-sm">{description}</p>
+            <p className="mt-1">{description}</p>
           )}
         </div>
       </div>
 
       <div className="bg-muted mt-4 p-4 rounded-lg">
-        <p className="mb-1 font-medium text-muted-foreground text-xs uppercase tracking-wider">
+        <p className="mb-1 font-bold text-xs uppercase tracking-wider">
           Chave PIX ({pixType})
         </p>
         <div className="flex justify-between items-center gap-2">

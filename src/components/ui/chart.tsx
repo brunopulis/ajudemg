@@ -192,7 +192,7 @@ const ChartTooltipContent = React.forwardRef<
               <div
                 key={item.dataKey}
                 className={cn(
-                  "flex flex-wrap items-stretch gap-2 w-full [&>svg]:w-2.5 [&>svg]:h-2.5 [&>svg]:text-muted-foreground",
+                  "flex flex-wrap items-stretch gap-2 w-full [&>svg]:w-2.5 [&>svg]:h-2.5 [&>svg]:",
                   indicator === "dot" && "items-center",
                 )}
               >
@@ -232,7 +232,7 @@ const ChartTooltipContent = React.forwardRef<
                     >
                       <div className="gap-1.5 grid">
                         {nestLabel ? tooltipLabel : null}
-                        <span className="text-muted-foreground">
+                        <span className="">
                           {itemConfig?.label || item.name}
                         </span>
                       </div>
@@ -291,7 +291,7 @@ const ChartLegendContent = React.forwardRef<
             <div
               key={item.value}
               className={cn(
-                "flex items-center gap-1.5 [&>svg]:w-3 [&>svg]:h-3 [&>svg]:text-muted-foreground",
+                "flex items-center gap-1.5 [&>svg]:w-3 [&>svg]:h-3 [&>svg]:",
               )}
             >
               {itemConfig?.icon && !hideIcon ? (
