@@ -5,6 +5,18 @@ import WhatToDonate from "@/components/WhatToDonate";
 
 const churches = [
   {
+    city: "Belo Horizonte",
+    entries: [
+      {
+        name: "Oitava Igreja Presbiteriana",
+        pixKey: "21.854.112/0001-80",
+        pixType: "CNPJ" as const,
+        description:
+          "Para destinar doações às famílias afetadas pelas chuvas, acrescente um centavo (R$ 0,01) ao valor. Quer doar R$ 50,00 por exemplo, doe R$ 50,01.",
+      }
+    ],
+  },
+  {
     city: "Juiz de Fora",
     entries: [
       {
@@ -94,7 +106,7 @@ const churches = [
 ];
 
 const whatsappMessage = encodeURIComponent(
-  "🚨 Juiz de Fora, Ubá, Matias Barbosa e Senador Firmino precisam de ajuda! As chuvas devastaram cidades inteiras. Igrejas estão recebendo doações via PIX. Acesse o portal e ajude: " +
+  "Juiz de Fora, Ubá, Matias Barbosa e Senador Firmino precisam de ajuda! As chuvas devastaram cidades inteiras. Igrejas estão recebendo doações via PIX. Acesse o portal e ajude: " +
     window.location.href,
 );
 const whatsappUrl = `https://wa.me/?text=${whatsappMessage}`;
@@ -102,7 +114,6 @@ const whatsappUrl = `https://wa.me/?text=${whatsappMessage}`;
 const Index = () => {
   return (
     <div className="bg-background min-h-screen">
-      {/* WhatsApp floating button */}
       <a
         href={whatsappUrl}
         target="_blank"
@@ -112,7 +123,6 @@ const Index = () => {
       >
         <MessageCircle className="w-7 h-7" />
       </a>
-      {/* Hero */}
       <section className="relative flex items-end h-[70vh] min-h-[480px] overflow-hidden">
         <img
           src={heroImage}
@@ -141,17 +151,16 @@ const Index = () => {
           href="#doacoes"
           className="bottom-4 left-1/2 z-10 absolute text-primary-foreground/60 -translate-x-1/2 animate-bounce"
         >
-          <ChevronDown className="w-8 h-8" />
+          <ChevronDown className="w-8 h-8" aria-hidden="true" />
         </a>
       </section>
 
-      {/* Donations */}
-      <section id="doacoes" className="mx-auto px-6 md:px-12 py-16 max-w-5xl">
+      <section id="doacoes" className="mx-auto px-6 md:px-12 py-16 max-w-6xl" aria-labelledby="donation-title">
         <div className="mb-10 text-center">
-          <h2 className="font-bold text-foreground text-3xl md:text-4xl">
+          <h2 id="donation-title" className="font-bold text-foreground text-3xl md:text-4xl">
             Como ajudar?
           </h2>
-          <p className="mx-auto mt-3 max-w-lg text-muted-foreground">
+          <p className="mx-auto mt-3 max-w-lg">
             Escolha uma das igrejas abaixo e faça sua doação via PIX. Cada
             centavo faz diferença.
           </p>
@@ -173,7 +182,6 @@ const Index = () => {
         </div>
       </section>
 
-      {/* What to donate & collection points */}
       <WhatToDonate />
 
       {/* Footer */}
