@@ -7,13 +7,6 @@ export const donations = [
       "Para destinar doações às famílias afetadas pelas chuvas, acrescente um centavo (R$ 0,01) ao valor. Quer doar R$ 50,00 por exemplo, doe R$ 50,01.",
   },
   {
-    name: "Ajuda Humanitária - Zona da Mata",
-    pixKey: "5971177@vakinha.com.br",
-    pixType: "Email" as const,
-    description:
-      "As fortes chuvas que atingiram a Zona da Mata mineira deixaram milhares de famílias em situação de emergência.",
-  },
-  {
     name: "Vakinha dos Bastiões",
     pixKey: "5967105@vakinha.com.br",
     pixType: "Email" as const,
